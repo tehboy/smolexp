@@ -7,10 +7,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html')) // Serve the HTML file
 })
 
-// Serve smoltalk.js when /smoltalk.js is requested
-app.get('/smoltalk.js', (req, res) => {
-  res.sendFile(path.join(__dirname, 'smoltalk.js')) // Serve the JS file
-})
+// Serve all files in the public folder
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
